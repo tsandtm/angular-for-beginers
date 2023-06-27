@@ -1,0 +1,4 @@
+<p *ngIf="product && product.price>=700">
+  <!-- Khi nguoi dung click notify. ban su kien qua ben product list de xu ly -->
+  <button type="button" (click)="notify.emit()">Notify Me</button>
+</p>

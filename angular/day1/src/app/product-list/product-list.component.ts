@@ -8,4 +8,11 @@ import { Products } from '../product.model';
 })
 export class ProductListComponent {
   products = [...Products]
+
+  share() {
+    window.alert('The product has been shared!');
+  }
+  NotifyFromAlert(){
+    window.alert("Da nhan su kien tu ben alert component")
+  }
 }

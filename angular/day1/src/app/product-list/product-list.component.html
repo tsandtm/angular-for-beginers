@@ -1,6 +1,22 @@
-<p>Products</p>
-<div *ngFor="let product of products">
-  <h3>
-    {{ product.name }}
-  </h3>
-</div>
+<h1>Products</h1>
+<ul>
+  <li *ngFor="let product of products">
+    <h3>
+      <!-- Thuoc tinh thi dung [] -->
+      <a [title]="'Chi tiet san pham ' + product.name" [routerLink]="['/products',product.id]">{{ product.name }}</a>
+    </h3>
+
+    <!-- Neu co phan mo ta thi hien thi them phan mo ta -->
+    <p *ngIf="product.description">
+      Mo ta: {{product.description}}
+    </p>
+
+    <!-- 1 event gi do thi dung () -->
+    <button type="button" (click)="share()">Chia se</button>
+
+    <!-- su dung component alert. Truyen product tu ben nay qua. Ben component alert giai quyet cac nghiep vu rieng cua minh
+      - nghiep vu rieng: check neu don gia >700$ thi hien button notifi me -->
+    <app-product-alerts [product]="product" (notify)="NotifyFromAlert()"></app-product-alerts>
+  </li>
+
+</ul>
