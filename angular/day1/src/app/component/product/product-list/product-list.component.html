@@ -1,6 +1,7 @@
 <h1>Products</h1>
 <ul>
-  <li *ngFor="let product of products">
+  <!-- <li *ngFor="let product of products$ | async"> -->
+    <li *ngFor="let product of products">
     <h3>
       <!-- Thuoc tinh thi dung [] -->
       <a [title]="'Chi tiet san pham ' + product.name" [routerLink]="['/products',product.id]">{{ product.name }}</a>

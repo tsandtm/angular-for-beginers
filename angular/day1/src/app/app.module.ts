@@ -2,13 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { TopBarComponent } from './app-top-bar/app-top-bar.component';
-import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { CartComponent } from './cart/cart.component';
+import { TopBarComponent } from './component/app-top-bar/app-top-bar.component';
+import { ProductAlertsComponent } from './component/product/product-alerts/product-alerts.component';
+import { ProductDetailsComponent } from './component/product/product-details/product-details.component';
+import { ProductListComponent } from './component/product/product-list/product-list.component';
+import { CartComponent } from './component/product/cart/cart.component';
+
+
 
 @NgModule({
   declarations: [
@@ -21,6 +24,7 @@ import { CartComponent } from './cart/cart.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },

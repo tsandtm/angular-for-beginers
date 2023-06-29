@@ -1,29 +1,38 @@
-import { Component } from '@angular/core';
-import { IProduct, Products } from '../product.model';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CartService } from '../cart.service';
+
+import { CartService } from '../services/cart.service';
+import { Product } from '../model/product.model';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
-export class ProductDetailsComponent {
-  product: IProduct | undefined
+export class ProductDetailsComponent implements OnInit {
+  product: Product | undefined
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private productService: ProductService
   ) {
+  }
+
+  ngOnInit(): void {
     // lay ra cac parameter tu url truyen qua.
     const routeParams = this.route.snapshot.paramMap;
     // lay gia tri cua cua para producid
     const productIdFromRoute = Number(routeParams.get('productId'));
 
     // Find the product that correspond with the id provided in route.
-    this.product = Products.find(product => product.id === productIdFromRoute);
+    this.productService.getProduct(productIdFromRoute).subscribe((item) => {
+      this.product = item;
+    });
   }
 
-  addToCart(product: IProduct) {
+
+  addToCart(product: Product) {
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart!');
   }

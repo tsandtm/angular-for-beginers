@@ -20,6 +20,13 @@
       "price": 299,
       "description": "reat pho",
       "check": true
+    },
+    {
+      "id": 4,
+      "name": "Phone Standard1111",
+      "price": 2929,
+      "description": "reat pho",
+      "check": true
     }
   ]
 }
