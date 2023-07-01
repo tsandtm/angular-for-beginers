@@ -13,6 +13,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
   products: Product[] = [];
   private subscription!: Subscription;
 
+  error: string | undefined;
+
 
   // products$!: Observable<Product[]>;
 
@@ -30,9 +32,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
    */
   ngOnInit(): void {
     // Lắng nghe sự thay đổi trong Subject
-    this.subscription = this.productService.products$.subscribe((items) => {
-      this.products = items;
-    })
+    this.subscription = this.productService.products$.subscribe(
+      (items) => { this.products = items; },
+      (error) => { this.error = error; }
+    );
 
     // Gọi phương thức để lấy dữ liệu từ API
     this.productService.getProducts();
@@ -43,6 +46,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  //#region bengin method
 
   share() {
     window.alert('The product has been shared!');
@@ -85,4 +89,5 @@ export class ProductListComponent implements OnInit, OnDestroy {
       }
     );
   }
+  //#endregion
 }

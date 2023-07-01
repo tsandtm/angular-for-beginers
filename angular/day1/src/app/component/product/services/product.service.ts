@@ -40,6 +40,20 @@ export class ProductService {
 
           // Truyền thông tin về sản phẩm ra bên ngoài bằng Subject
           this.displayProductsSubject.next(this.products);
+        }),
+        catchError((error: HttpErrorResponse) => {
+          let _error = ErrorUtils.handleDefaultErrors(error);
+
+          // Kiểm tra các lỗi đặt biệt
+          if (error.status === 403) {
+            console.log('Lỗi phân quyền');
+            _error = 'Lỗi phân quyền';
+          }
+
+          this.displayProductsSubject.error(_error);
+          // Nếu không có lỗi đặt biệt, ném lại lỗi gốc
+
+          return throwError(_error);
         })
       ).subscribe();
     }
