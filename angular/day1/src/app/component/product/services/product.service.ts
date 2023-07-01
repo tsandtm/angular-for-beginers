@@ -1,15 +1,15 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map, of } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
 
 import { API_ENDPOINTS } from 'src/config/api.config';
 import { Product } from '../model/product.model';
+import { ErrorUtils } from 'src/app/utils/error-utils';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-
   //#region private property
   private products: Product[] = [];
   private displayProductsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);  //theo doi su thay doi cua product. Chi co service product moi day du lieu
@@ -58,8 +58,66 @@ export class ProductService {
 
 
   //create
+  createProduct(product: Product): Observable<Product> {
+    return this.http.post<any>(API_ENDPOINTS.products, product).pipe(
+      map(data => {
+        const newProduct = new Product(data);
+        // Thêm sản phẩm mới vào mảng products
+        this.products.push(newProduct);
+
+        // Cập nhật thông tin sản phẩm đã thêm vào bên ngoài bằng Subject
+        this.displayProductsSubject.next(this.products);
+
+        return newProduct;
+      })
+    );
+  }
 
   //update
+  updateProduct(product: Product): Observable<Product> {
+    const url = `${API_ENDPOINTS.product}/${product.id}`;
+
+    return this.http.put<any>(url, product).pipe(
+      map(data => {
+        const updatedProduct = new Product(data);
+        // Cập nhật thông tin sản phẩm trong mảng products
+        const index = this.products.findIndex(p => p.id === updatedProduct.id);
+        if (index !== -1) {
+          this.products[index] = updatedProduct;
+        }
+
+        // Cập nhật thông tin sản phẩm đã cập nhật ra bên ngoài bằng Subject
+        this.displayProductsSubject.next(this.products);
+
+        return updatedProduct;
+      })
+    );
+  }
 
   //delete
+  deleteProduct(id: number): Observable<any> {
+    const url = `${API_ENDPOINTS.product}/${id}`;
+
+    return this.http.delete<any>(url).pipe(
+      tap(() => {
+        // Xóa sản phẩm khỏi mảng products
+        this.products = this.products.filter(product => product.id !== id);
+
+        // Cập nhật thông tin sản phẩm đã xóa ra bên ngoài bằng Subject
+        this.displayProductsSubject.next(this.products);
+      }),
+      catchError((error: HttpErrorResponse) => {
+        ErrorUtils.handleDefaultErrors(error);
+
+        // Kiểm tra các lỗi đặt biệt
+        if (error.status === 403) {
+          console.log('Lỗi phân quyền');
+          throw throwError('Lỗi phân quyền');
+        }
+
+        // Nếu không có lỗi đặt biệt, ném lại lỗi gốc
+        throw error;
+      })
+    );
+  }
 }

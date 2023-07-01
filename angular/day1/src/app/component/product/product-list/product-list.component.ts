@@ -50,4 +50,39 @@ export class ProductListComponent implements OnInit, OnDestroy {
   NotifyFromAlert() {
     window.alert("Da nhan su kien tu ben alert component")
   }
+
+  deleteProduct(id: number) {
+    this.productService.deleteProduct(id).subscribe(
+      () => {
+        // Xử lý sau khi sản phẩm đã được xóa thành công
+        // window.alert("Xóa thành công");
+      },
+      (error) => {
+        // Xử lý khi xảy ra lỗi trong quá trình xóa sản phẩm
+        console.log('Lỗi xóa sản phẩm:', error);
+      }
+    );
+  }
+
+  createProduct(product: Product) {
+    this.productService.createProduct(product).subscribe(
+      newProduct => {
+        // Xử lý sau khi sản phẩm đã được tạo thành công
+      },
+      error => {
+        // Xử lý khi xảy ra lỗi trong quá trình tạo sản phẩm
+      }
+    );
+  }
+
+  updateProduct(product: Product) {
+    this.productService.updateProduct(product).subscribe(
+      updatedProduct => {
+        // Xử lý sau khi sản phẩm đã được cập nhật thành công
+      },
+      error => {
+        // Xử lý khi xảy ra lỗi trong quá trình cập nhật sản phẩm
+      }
+    );
+  }
 }
