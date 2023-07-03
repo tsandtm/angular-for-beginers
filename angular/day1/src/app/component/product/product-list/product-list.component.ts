@@ -34,7 +34,13 @@ export class ProductListComponent implements OnInit, OnDestroy {
     // Lắng nghe sự thay đổi trong Subject
     this.subscription = this.productService.products$.subscribe(
       (items) => { this.products = items; },
-      (error) => { this.error = error; }
+      // (error) => { this.error = error; }
+    );
+
+    this.subscription.add(
+      this.productService.getErrorSubject().subscribe(
+        (error) => { this.error = error; }
+      )
     );
 
     // Gọi phương thức để lấy dữ liệu từ API

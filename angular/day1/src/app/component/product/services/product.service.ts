@@ -5,19 +5,23 @@ import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'r
 import { API_ENDPOINTS } from 'src/config/api.config';
 import { Product } from '../model/product.model';
 import { ErrorUtils } from 'src/app/utils/error-utils';
+import { BaseService } from './BaseService';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class ProductService extends BaseService {
+
   //#region private property
   private products: Product[] = [];
   private displayProductsSubject: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);  //theo doi su thay doi cua product. Chi co service product moi day du lieu
-  //#region
+  //#endregion
 
   products$: Observable<Product[]> = this.displayProductsSubject.asObservable(); //de ben ngoai xem du lieu
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    super();
+  }
 
   //get all product
   /**
@@ -42,23 +46,34 @@ export class ProductService {
           this.displayProductsSubject.next(this.products);
         }),
         catchError((error: HttpErrorResponse) => {
-          let _error = ErrorUtils.handleDefaultErrors(error);
-
           // Kiểm tra các lỗi đặt biệt
-          if (error.status === 403) {
-            console.log('Lỗi phân quyền');
-            _error = 'Lỗi phân quyền';
-          }
+          // if (error.status === 403) {
+          //   console.log("Lỗi phân quyền");
+          //   this.errorSubject.next("Lỗi phân quyền");
+          //   return throwError(error);
+          // }
 
-          this.displayProductsSubject.error(_error);
           // Nếu không có lỗi đặt biệt, ném lại lỗi gốc
-
-          return throwError(_error);
+          return this.handleHttpError(error);
         })
       ).subscribe();
     }
   }
 
+  /**
+   * Component tiếp nhận các hành động của người dùng. check các vấn đề liên quan đến trình diễn UI.
+   * Khi xảy ra các hành động cần các dùng dữ liệu có tính logic nghiệp vụ hoặc dữ liệu từ server
+   * - các logic độc lập chỉ mỗi ui sài thì viết ở component. check lỗi này nọ ở đây
+   * - các logic mang tính nghiệp vụ của đối tượng, thì dùng các phương thức của đối tượng. check lỗi này nọ ở đây
+   * - Các yêu cầu cung cấp dữ liệu thì gọi đến service
+   * gọi đến service để lấy thông tin sài.
+   * service nhận yêu cầu từ component, dùng thông tin component truyền xuống đẩy lên api.
+   * Tiếp nhận phận hổi từ api trả về.
+   * Covernt dữ liệu đúng định dạng, đưa vào kho tài nguyên trên client nếu cần
+   * - trường hợp phản hồi từ api về lỗi thì bắt lỗi trả về cho component hiện ra ngoài, hoặc viết 1 phần lỗi chung gì đó để kích hoạt hiện ra ngoài
+   * - trường hợp dữ liệu trả về ok nhưng khi convert lỗi thì viết phần lỗi ở đối tượng.
+   * Phản hồi ngược lại cho component sài
+   */
 
 
   //get one
@@ -66,6 +81,9 @@ export class ProductService {
     return this.http.get<any>(`${API_ENDPOINTS.product}/${id}`).pipe(
       map((data) => {
         return new Product(data)
+      }),
+      catchError((error: HttpErrorResponse) => {
+        return this.handleHttpError(error);
       })
     );
   }
@@ -83,6 +101,9 @@ export class ProductService {
         this.displayProductsSubject.next(this.products);
 
         return newProduct;
+      }),
+      catchError((error: HttpErrorResponse) => {
+        return this.handleHttpError(error);
       })
     );
   }
@@ -121,16 +142,7 @@ export class ProductService {
         this.displayProductsSubject.next(this.products);
       }),
       catchError((error: HttpErrorResponse) => {
-        ErrorUtils.handleDefaultErrors(error);
-
-        // Kiểm tra các lỗi đặt biệt
-        if (error.status === 403) {
-          console.log('Lỗi phân quyền');
-          throw throwError('Lỗi phân quyền');
-        }
-
-        // Nếu không có lỗi đặt biệt, ném lại lỗi gốc
-        throw error;
+        return this.handleHttpError(error);
       })
     );
   }
