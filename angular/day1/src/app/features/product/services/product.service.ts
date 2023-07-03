@@ -2,10 +2,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
 
-import { API_ENDPOINTS } from 'src/config/api.config';
+import { API_ENDPOINTS } from 'src/app/config/api.config';
 import { Product } from '../model/product.model';
-import { ErrorUtils } from 'src/app/utils/error-utils';
-import { BaseService } from './BaseService';
+import { BaseService } from '../../../core/BaseService';
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +45,7 @@ export class ProductService extends BaseService {
           this.displayProductsSubject.next(this.products);
         }),
         catchError((error: HttpErrorResponse) => {
-          // Kiểm tra các lỗi đặt biệt
+          // // Kiểm tra các lỗi đặt biệt
           // if (error.status === 403) {
           //   console.log("Lỗi phân quyền");
           //   this.errorSubject.next("Lỗi phân quyền");

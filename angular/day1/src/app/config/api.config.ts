@@ -1,5 +1,5 @@
-import { environment } from "../environments/environment.test";
-// import { environment } from "./environment.product";
+// import { environment } from "./environments/environment.product";
+import { environment } from "./environments/environment.test";
 
 //buildEndpoint
 export function b(path: string): string {

@@ -5,11 +5,11 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
-import { TopBarComponent } from './component/app-top-bar/app-top-bar.component';
-import { ProductAlertsComponent } from './component/product/product-alerts/product-alerts.component';
-import { ProductDetailsComponent } from './component/product/product-details/product-details.component';
-import { ProductListComponent } from './component/product/product-list/product-list.component';
-import { CartComponent } from './component/product/cart/cart.component';
+import { TopBarComponent } from './layout/app-top-bar/app-top-bar.component';
+import { CartComponent } from './features/product/component/cart/cart.component';
+import { ProductAlertsComponent } from './features/product/component/product-alerts/product-alerts.component';
+import { ProductDetailsComponent } from './features/product/component/product-details/product-details.component';
+import { ProductListComponent } from './features/product/component/product-list/product-list.component';
 
 
 
