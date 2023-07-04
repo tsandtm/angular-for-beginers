@@ -28,6 +28,8 @@
     - https://www.facebook.com/groups/AngularVietnam/permalink/890710838094435/
     - https://codeburst.io/lazy-loading-external-javascript-libraries-in-angular-3d86ada54ec7
   
+# DAY 4
+
 
 
 
@@ -41,5 +43,12 @@ code 1 project thuc te luon. dua vao cau truc 100 ngay do.
 - thiet ke UI full
 - Lên plan làm
 - Xem clip ecommercer, tập trung vào nội dung tổ chức service và model. Note tên các kỹ thuật angular cần dùng tương ứng cho các kịch bản UI
+- day 4:
+  - https://github.com/nartc/ng-auth-example/blob/main/app.module.ts
+  - https://www.tiepphan.com/angular-router-series/
+  - Xem phần router guard: https://github.com/angular-vietnam/100-days-of-angular/blob/master/Day030-router-guards-resolvers.md
+  - Tổ chức phần phân quyền.
+  - https://github.com/ghoul007/Angular-project-structure/blob/master/src/app/core/auth/auth.module.ts
+
 
 
