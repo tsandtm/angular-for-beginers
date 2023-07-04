@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './layout/app-top-bar/app-top-bar.component';
 
-import { ProductModule } from './features/product/product.module';
+// import { ProductModule } from './features/product/product.module';
 import { NotFoundComponent } from './share/component/not-found/not-found.component';
 
 @NgModule({
@@ -20,7 +20,7 @@ import { NotFoundComponent } from './share/component/not-found/not-found.compone
   imports: [
     BrowserModule,
     HttpClientModule,
-    ProductModule,
+    // ProductModule,
     AppRoutingModule,//import sau cung
     BrowserAnimationsModule
   ],

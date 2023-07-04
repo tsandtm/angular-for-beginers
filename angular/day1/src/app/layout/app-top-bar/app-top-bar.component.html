@@ -2,8 +2,12 @@
   <h1>My Store</h1>
 </a>
 
-<a class="button fancy-button" [routerLink]="['cart']"><em class="material-icons">shopping_cart</em>Checkout</a>
+<ul>
+  <li class="ts"><a routerLink="/">Dashboard</a> </li>
+  <li class="ts"><a [routerLink]="['/product']">Product</a> </li>
+</ul>
 
+<a class="button fancy-button" [routerLink]="['cart']"><em class="material-icons">shopping_cart</em>Checkout</a>
 
 <!--
 Copyright Google LLC. All Rights Reserved.
