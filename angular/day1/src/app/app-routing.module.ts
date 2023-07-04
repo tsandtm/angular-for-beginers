@@ -6,7 +6,7 @@ import { NotFoundComponent } from './share/component/not-found/not-found.compone
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   {
-    path: 'product',
+    path: 'products',
     loadChildren: () => import('./features/product/product.module').then(m => m.ProductModule)
   },
   { path: '**', component: NotFoundComponent } // Redirect mọi route không hợp lệ về 'home'
@@ -16,7 +16,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(
     routes,
-    { preloadingStrategy: PreloadAllModules })
+    { preloadingStrategy: PreloadAllModules })  //Tự động load toàn bộ các module khác khi run xong các phần chính
   ],
   exports: [RouterModule]
 })

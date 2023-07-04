@@ -24,8 +24,11 @@
   - Sinh ra module routing
   - Tìm hiểu lazyload
     - Sử dụng được source-map-explorer
-  - Cách sử dụng ShareModule
+  - Cách sử dụng ShareModule:
+    - https://www.facebook.com/groups/AngularVietnam/permalink/890710838094435/
+    - https://codeburst.io/lazy-loading-external-javascript-libraries-in-angular-3d86ada54ec7
   
+
 
 
 # LO TRINH
