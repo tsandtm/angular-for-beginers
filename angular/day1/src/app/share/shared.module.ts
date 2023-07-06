@@ -15,6 +15,9 @@ export class SharedModule {
     return {
       ngModule: SharedModule,
       providers: [
+        /**
+         * truyền vào những service chỉ khởi tạo 1 instant cho toàn bộ app.
+         */
         // UserService
       ]
     };

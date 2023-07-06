@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
 
 import { API_ENDPOINTS } from 'src/app/config/api.config';
+
 import { Product } from '../model/product.model';
 import { BaseService } from '../../../core/BaseService';
 

@@ -29,13 +29,15 @@
     - https://codeburst.io/lazy-loading-external-javascript-libraries-in-angular-3d86ada54ec7
   
 # DAY 4
-
+  - Sài được cơ bản Router guard
+  - CanDeactivate: Giả sử chúng ta có chức năng edit bài viết, khách hàng yêu cầu thêm một điều là khi người ta đã thay đổi một cái gì đó mà chưa save thông tin lại, và nếu người dùng redirect sang một trang khác, thì sẽ phải hỏi người dùng xem có thật sự muốn rời khỏi trang hay không.
+  - CanLoad: Đối với các lazy load route, chúng ta có thể kiểm tra trước ở frontend, nếu thỏa mãn điều kiện mới cho phép tải về.
 
 
 
 # LO TRINH
-- xem cai 1 tram ngay…. no nhung thu minh co the dung o nhung bai viet 100 ngay do
-code 1 project thuc te luon. dua vao cau truc 100 ngay do.
+- add template cho project
+- su dung mutilanguage cho project
 
 - Lựa chọn làm 1 trong các module sau:
     - quản lý sản phẩm và kho hàng

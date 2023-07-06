@@ -3,29 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing.module';
+import { ShareComponentModule } from './share/components/share-component.module';
 import { SharedModule } from './share/shared.module';
+import { AuthModule } from './features/auth/auth.module';
 
 import { AppComponent } from './app.component';
-import { TopBarComponent } from './layout/app-top-bar/app-top-bar.component';
-
-// import { ProductModule } from './features/product/product.module';
-import { NotFoundComponent } from './share/component/not-found/not-found.component';
-import { AuthComponent } from './features/auth/auth.component';
+import { NotFoundComponent } from './share/components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopBarComponent,
     NotFoundComponent,
-    AuthComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+
     // ProductModule,
-    AppRoutingModule,//import sau cung
+    AuthModule,
+
+    /** Module root routes của ứng dụng. import sau cung */
     SharedModule.forRoot(),
+    AppRoutingModule,
     BrowserAnimationsModule
   ],
   providers: [],
