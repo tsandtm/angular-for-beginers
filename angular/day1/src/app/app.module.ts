@@ -21,7 +21,7 @@ import { NotFoundComponent } from './share/components/not-found/not-found.compon
     HttpClientModule,
 
     // ProductModule,
-    AuthModule,
+    // AuthModule,
 
     /** Module root routes của ứng dụng. import sau cung */
     SharedModule.forRoot(),

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShareComponentModule } from 'src/app/share/components/share-component.module';
-import { MemLayoutRoutingModule } from './mem-layout.routing.module';
 import { MemLayoutComponent } from './mem-layout.component';
+import { MemLayoutRoutingModule } from './mem-layout.routing.module';
 
 
 
@@ -12,8 +12,8 @@ import { MemLayoutComponent } from './mem-layout.component';
   ],
   imports: [
     CommonModule,
-    MemLayoutRoutingModule,
     ShareComponentModule,
+    MemLayoutRoutingModule
   ]
 })
 export class MemLayoutModule { }

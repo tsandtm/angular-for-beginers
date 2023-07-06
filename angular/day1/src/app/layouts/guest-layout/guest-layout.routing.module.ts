@@ -4,10 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 const guestRoutes: Routes = [
   {
     path: '',
-    loadChildren: () => import('../../features/auth/auth-routing.module').then(m => m.AuthRoutingModule),
+    loadChildren: () => import('../../features/auth/auth.module').then(m => m.AuthModule),
   },
 ]
-
 
 @NgModule({
   declarations: [],

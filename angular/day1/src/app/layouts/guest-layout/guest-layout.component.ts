@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./guest-layout.component.css']
 })
 export class GuestLayoutComponent {
-
 }

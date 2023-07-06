@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserRoutingModule } from './user.routing.module';
 import { AuthModule } from '../auth/auth.module';
 import { UserComponent } from './user.component';
+import { UserRoutingModule } from './user.routing.module';
+
 
 @NgModule({
   declarations: [

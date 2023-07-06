@@ -4,6 +4,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { NotFoundComponent } from './share/components/not-found/not-found.component';
 import { GuestLayoutComponent } from './layouts/guest-layout/guest-layout.component';
 import { MemLayoutComponent } from './layouts/mem-layout/mem-layout.component';
+import { AuthGuard } from './features/auth/auth.guard';
 
 const routes: Routes = [
   // { path: '', component: DashboardComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   {
     path: '',
     component: MemLayoutComponent,
+    // canActivateChild: [AuthGuard],
     loadChildren: () => import('./layouts/mem-layout/mem-layout.module').then(m => m.MemLayoutModule),
     // canActivate: [AuthGuard],
   },
@@ -20,8 +22,9 @@ const routes: Routes = [
     path: '',
     component: GuestLayoutComponent,
     loadChildren: () => import('./layouts/guest-layout/guest-layout.module').then(m => m.GuestLayoutModule),
-    // canActivate: [AuthGuard],
+
   },
+
   /**end */
 
   { path: '**', component: NotFoundComponent } // Redirect mọi route không hợp lệ về 'home'
