@@ -33,6 +33,10 @@
   - CanDeactivate: Giả sử chúng ta có chức năng edit bài viết, khách hàng yêu cầu thêm một điều là khi người ta đã thay đổi một cái gì đó mà chưa save thông tin lại, và nếu người dùng redirect sang một trang khác, thì sẽ phải hỏi người dùng xem có thật sự muốn rời khỏi trang hay không.
   - CanLoad: Đối với các lazy load route, chúng ta có thể kiểm tra trước ở frontend, nếu thỏa mãn điều kiện mới cho phép tải về.
 
+# DAY 5
+  - Có 1 template html sẵn. Covert thành layout giao diện cho project
+  - Chuyền page layout member và guest
+
 
 
 # LO TRINH

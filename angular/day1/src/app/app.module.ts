@@ -4,12 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app.routing.module';
-import { ShareComponentModule } from './share/components/share-component.module';
 import { SharedModule } from './share/shared.module';
-import { AuthModule } from './features/auth/auth.module';
 
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './share/components/not-found/not-found.component';
+
+import { ThemeSettingsService } from './layouts/theme-settings.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,9 @@ import { NotFoundComponent } from './share/components/not-found/not-found.compon
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    ThemeSettingsService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

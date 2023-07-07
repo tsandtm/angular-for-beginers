@@ -1,5 +1,36 @@
+<div class="page-wrapper">
+  <div class="page-inner">
+    <!-- {{> include/_left-panel }} -->
+    <app-left-panel></app-left-panel>
 
-<app-top-bar></app-top-bar>
-<div class="container">
-  <router-outlet></router-outlet>
+    <div class="page-content-wrapper">
+      <!-- {{> include/_page-header }} -->
+      <app-page-header></app-page-header>
+
+      <!-- BEGIN Page Content -->
+      <!-- the #js-page-content id is needed for some plugins to initialize -->
+      <main id="js-page-content" role="main" class="page-content">
+        <!-- {{#if preemptiveclass}} -->
+        <!-- Page heading removed for composed layout -->
+        <!-- {{else}}
+                        {{> include/_page-breadcrumb }}
+                        <div class="subheader">{{> include/_page-heading }}{{#> subheader-block}}{{/subheader-block}}</div>
+                    {{/if}}
+                    {{#>content-block}}{{/content-block}} -->
+        <!-- <app-top-bar></app-top-bar> -->
+        <router-outlet></router-outlet>
+      </main>
+      <!-- {{> include/_page-content-overlay }} -->
+      <!-- END Page Content -->
+
+      <!-- {{> include/_page-footer }}
+
+      {{> include/_shortcut-modal }}
+
+      {{> include/_color-profile-reference }} -->
+
+    </div>
+  </div>
 </div>
+
+<app-page-setting></app-page-setting>

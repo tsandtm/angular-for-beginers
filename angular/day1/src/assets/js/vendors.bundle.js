@@ -24355,7 +24355,7 @@ return Popper;
 
     body.find('.bootbox-body').html(options.message);
 
-    // Only attempt to create buttons if at least one has 
+    // Only attempt to create buttons if at least one has
     // been defined in the options object
     if (getKeyLength(options.buttons) > 0) {
       each(buttons, function (key, b) {
@@ -24473,7 +24473,7 @@ return Popper;
 
     dialog.one('hidden.bs.modal', function (e) {
       // ensure we don't accidentally intercept hidden events triggered
-      // by children of the current dialog. We shouldn't need to handle this anymore, 
+      // by children of the current dialog. We shouldn't need to handle this anymore,
       // now that Bootstrap namespaces its events, but still worth doing.
       if (e.target === this) {
         dialog.remove();
@@ -24562,7 +24562,7 @@ return Popper;
 
 
   // Helper function to simulate the native alert() behavior. **NOTE**: This is non-blocking, so any
-  // code that must happen after the alert is dismissed should be placed within the callback function 
+  // code that must happen after the alert is dismissed should be placed within the callback function
   // for this alert.
   exports.alert = function () {
     var options;
@@ -24590,7 +24590,7 @@ return Popper;
 
 
   // Helper function to simulate the native confirm() behavior. **NOTE**: This is non-blocking, so any
-  // code that must happen after the confirm is dismissed should be placed within the callback function 
+  // code that must happen after the confirm is dismissed should be placed within the callback function
   // for this confirm.
   exports.confirm = function () {
     var options;
@@ -24617,7 +24617,7 @@ return Popper;
 
 
   // Helper function to simulate the native prompt() behavior. **NOTE**: This is non-blocking, so any
-  // code that must happen after the prompt is dismissed should be placed within the callback function 
+  // code that must happen after the prompt is dismissed should be placed within the callback function
   // for this prompt.
   exports.prompt = function () {
     var options;
@@ -24649,7 +24649,7 @@ return Popper;
     // spawning the dialog to give us a chance to attach some handlers to
     // it, but we need to make sure we respect a preference not to show it
     shouldShow = (options.show === undefined) ? defaults.show : options.show;
-    // This is required prior to calling the dialog builder below - we need to 
+    // This is required prior to calling the dialog builder below - we need to
     // add an event handler just before the prompt is shown
     options.show = false;
 
@@ -24658,7 +24658,7 @@ return Popper;
       return options.callback.call(this, null);
     };
 
-    // Prompt submitted - extract the prompt value. This requires a bit of work, 
+    // Prompt submitted - extract the prompt value. This requires a bit of work,
     // given the different input types available.
     options.buttons.confirm.callback = function () {
       var value;
@@ -24711,15 +24711,15 @@ return Popper;
       case 'email':
       case 'password':
         input.val(options.value);
-        
+
         if (options.placeholder) {
           input.attr('placeholder', options.placeholder);
         }
-    
+
         if (options.pattern) {
           input.attr('pattern', options.pattern);
         }
-    
+
         if (options.maxlength) {
           input.attr('maxlength', options.maxlength);
         }
@@ -24727,7 +24727,7 @@ return Popper;
         if (options.required) {
           input.prop({ 'required': true });
         }
-        
+
         if (options.rows && !isNaN(parseInt(options.rows))) {
           if(options.inputType === 'textarea'){
             input.attr({ 'rows': options.rows });
@@ -24742,11 +24742,11 @@ return Popper;
       case 'number':
       case 'range':
         input.val(options.value);
-        
+
         if (options.placeholder) {
           input.attr('placeholder', options.placeholder);
         }
-    
+
         if (options.pattern) {
           input.attr('pattern', options.pattern);
         }
@@ -24754,9 +24754,9 @@ return Popper;
         if (options.required) {
           input.prop({ 'required': true });
         }
-        
+
         // These input types have extra attributes which affect their input validation.
-        // Warning: For most browsers, date inputs are buggy in their implementation of 'step', so 
+        // Warning: For most browsers, date inputs are buggy in their implementation of 'step', so
         // this attribute will have no effect. Therefore, we don't set the attribute for date inputs.
         // @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#Setting_maximum_and_minimum_dates
         if (options.inputType !== 'date') {
@@ -24799,15 +24799,15 @@ return Popper;
         if (options.placeholder) {
           input.attr('placeholder', options.placeholder);
         }
-        
+
         if (options.required) {
           input.prop({ 'required': true });
         }
-        
+
         if (options.multiple) {
           input.prop({ 'multiple': true });
         }
-        
+
         each(inputOptions, function (_, option) {
           // assume the element to attach to is the input...
           var elem = input;
@@ -25050,8 +25050,8 @@ return Popper;
   }
 
 
-  //  Checks each button object to see if key is valid. 
-  //  This function will only be called by the alert, confirm, and prompt helpers. 
+  //  Checks each button object to see if key is valid.
+  //  This function will only be called by the alert, confirm, and prompt helpers.
   function validateButtons(options, buttons) {
     var allowedButtons = {};
     each(buttons, function (key, value) {
@@ -25090,7 +25090,7 @@ return Popper;
 
 
 
-  //  Get localized text from a locale. Defaults to 'en' locale if no locale 
+  //  Get localized text from a locale. Defaults to 'en' locale if no locale
   //  provided or a non-registered locale is requested
   function getText(key, locale) {
     var labels = locales[locale];
@@ -25147,7 +25147,7 @@ return Popper;
         button.label = key;
       }
 
-      if (!button.className) {     
+      if (!button.className) {
         var isPrimary = false;
         if(options.swapButtonOrder){
           isPrimary = index === 0;
@@ -25202,7 +25202,7 @@ return Popper;
       dialog.modal('hide');
     }
   }
-  
+
   // Validate `min` and `max` values based on the current `inputType` value
   function minAndMaxAreValid(type, min, max){
     var result = false;
@@ -25234,7 +25234,7 @@ return Popper;
         throw new Error('"max" must be a valid number. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max for more information.');
       }
     }
-    
+
     if(minValid && maxValid){
       if(max <= min){
         throw new Error('"max" must be greater than "min". See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max for more information.');
@@ -25316,12 +25316,12 @@ bootbox.setTemplates({
 			range:
 			'<input class="bootbox-input bootbox-input-range form-control-range" autocomplete="off" type="range" />'
 		}
-	
+
 });
 /**
  * author: andreas johan virkus
  * snippet url: https://gist.github.com/andreasvirkus/bfaedc839de0d46ffe4c
- * 
+ *
  * Remove classes that have given prefix
  * Example: You have an element with classes "apple juiceSmall juiceBig banana"
  * You run:
@@ -25340,7 +25340,7 @@ $.fn.removeClassPrefix = function (prefix) {
 };
 
 /**
- * "http://dummy.com/?technology=jquery&blog=jquerybyexample". 
+ * "http://dummy.com/?technology=jquery&blog=jquerybyexample".
  * 1 var tech = getUrlParameter('technology');
  * 2 var blog = getUrlParameter('blog');
  * note: we are using this inside icon generator page
@@ -25417,17 +25417,27 @@ jQuery.fn.extend({
  * Convert RGB to HEX
  * rgb2hex(hex_value)
  */
+// function rgb2hex(rgb) {
+//     rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+//     function hex(x) {
+//         return ("0" + parseInt(x).toString(16)).slice(-2);
+//     }
+//     return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+// }
 function rgb2hex(rgb) {
-    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-    function hex(x) {
-        return ("0" + parseInt(x).toString(16)).slice(-2);
-    }
-    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+  if (typeof rgb !== 'undefined' && rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)) {
+      rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+      function hex(x) {
+          return ("0" + parseInt(x).toString(16)).slice(-2);
+      }
+      return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+  }
+  return ''; // Trả về giá trị mặc định khi rgb không hợp lệ
 }
 /*!
  * jQuery throttle / debounce - v1.1 - 3/7/2010
  * http://benalman.com/projects/jquery-throttle-debounce-plugin/
- * 
+ *
  * Copyright (c) 2010 "Cowboy" Ben Alman
  * Dual licensed under the MIT and GPL licenses.
  * http://benalman.com/about/license/
@@ -25436,51 +25446,51 @@ function rgb2hex(rgb) {
 // Script: jQuery throttle / debounce: Sometimes, less is more!
 //
 // *Version: 1.1, Last updated: 3/7/2010*
-// 
+//
 // Project Home - http://benalman.com/projects/jquery-throttle-debounce-plugin/
 // GitHub       - http://github.com/cowboy/jquery-throttle-debounce/
 // Source       - http://github.com/cowboy/jquery-throttle-debounce/raw/master/jquery.ba-throttle-debounce.js
 // (Minified)   - http://github.com/cowboy/jquery-throttle-debounce/raw/master/jquery.ba-throttle-debounce.min.js (0.7kb)
-// 
+//
 // About: License
-// 
+//
 // Copyright (c) 2010 "Cowboy" Ben Alman,
 // Dual licensed under the MIT and GPL licenses.
 // http://benalman.com/about/license/
-// 
+//
 // About: Examples
-// 
+//
 // These working examples, complete with fully commented code, illustrate a few
 // ways in which this plugin can be used.
-// 
+//
 // Throttle - http://benalman.com/code/projects/jquery-throttle-debounce/examples/throttle/
 // Debounce - http://benalman.com/code/projects/jquery-throttle-debounce/examples/debounce/
-// 
+//
 // About: Support and Testing
-// 
+//
 // Information about what version or versions of jQuery this plugin has been
 // tested with, what browsers it has been tested in, and where the unit tests
 // reside (so you can test it yourself).
-// 
+//
 // jQuery Versions - none, 1.3.2, 1.4.2
 // Browsers Tested - Internet Explorer 6-8, Firefox 2-3.6, Safari 3-4, Chrome 4-5, Opera 9.6-10.1.
 // Unit Tests      - http://benalman.com/code/projects/jquery-throttle-debounce/unit/
-// 
+//
 // About: Release History
-// 
+//
 // 1.1 - (3/7/2010) Fixed a bug in <jQuery.throttle> where trailing callbacks
 //       executed later than they should. Reworked a fair amount of internal
 //       logic as well.
 // 1.0 - (3/6/2010) Initial release as a stand-alone project. Migrated over
 //       from jquery-misc repo v0.4 to jquery-throttle repo v1.0, added the
 //       no_trailing throttle parameter and debounce functionality.
-// 
+//
 // Topic: Note for non-jQuery users
-// 
+//
 // jQuery isn't actually required for this plugin, because nothing internal
 // uses any jQuery methods or properties. jQuery is just used as a namespace
 // under which these methods can exist.
-// 
+//
 // Since jQuery isn't actually required for this plugin, if jQuery doesn't exist
 // when this plugin is loaded, the method described below will be created in
 // the `Cowboy` namespace. Usage will be exactly the same, but instead of
@@ -25488,47 +25498,47 @@ function rgb2hex(rgb) {
 
 (function(window,undefined){
   '$:nomunge'; // Used by YUI compressor.
-  
+
   // Since jQuery really isn't required for this plugin, use `jQuery` as the
   // namespace only if it already exists, otherwise use the `Cowboy` namespace,
   // creating it if necessary.
   var $ = window.jQuery || window.Cowboy || ( window.Cowboy = {} ),
-    
+
     // Internal method reference.
     jq_throttle;
-  
+
   // Method: jQuery.throttle
-  // 
+  //
   // Throttle execution of a function. Especially useful for rate limiting
   // execution of handlers on events like resize and scroll. If you want to
   // rate-limit execution of a function to a single time, see the
   // <jQuery.debounce> method.
-  // 
+  //
   // In this visualization, | is a throttled-function call and X is the actual
   // callback execution:
-  // 
+  //
   // > Throttled with `no_trailing` specified as false or unspecified:
   // > ||||||||||||||||||||||||| (pause) |||||||||||||||||||||||||
   // > X    X    X    X    X    X        X    X    X    X    X    X
-  // > 
+  // >
   // > Throttled with `no_trailing` specified as true:
   // > ||||||||||||||||||||||||| (pause) |||||||||||||||||||||||||
   // > X    X    X    X    X             X    X    X    X    X
-  // 
+  //
   // Usage:
-  // 
+  //
   // > var throttled = jQuery.throttle( delay, [ no_trailing, ] callback );
-  // > 
+  // >
   // > jQuery('selector').bind( 'someevent', throttled );
   // > jQuery('selector').unbind( 'someevent', throttled );
-  // 
+  //
   // This also works in jQuery 1.4+:
-  // 
+  //
   // > jQuery('selector').bind( 'someevent', jQuery.throttle( delay, [ no_trailing, ] callback ) );
   // > jQuery('selector').unbind( 'someevent', callback );
-  // 
+  //
   // Arguments:
-  // 
+  //
   //  delay - (Number) A zero-or-greater delay in milliseconds. For event
   //    callbacks, values around 100 or 250 (or even higher) are most useful.
   //  no_trailing - (Boolean) Optional, defaults to false. If no_trailing is
@@ -25540,27 +25550,27 @@ function rgb2hex(rgb) {
   //  callback - (Function) A function to be executed after delay milliseconds.
   //    The `this` context and all arguments are passed through, as-is, to
   //    `callback` when the throttled-function is executed.
-  // 
+  //
   // Returns:
-  // 
+  //
   //  (Function) A new, throttled, function.
-  
+
   $.throttle = jq_throttle = function( delay, no_trailing, callback, debounce_mode ) {
     // After wrapper has stopped being called, this timeout ensures that
     // `callback` is executed at the proper times in `throttle` and `end`
     // debounce modes.
     var timeout_id,
-      
+
       // Keep track of the last time `callback` was executed.
       last_exec = 0;
-    
+
     // `no_trailing` defaults to falsy.
     if ( typeof no_trailing !== 'boolean' ) {
       debounce_mode = callback;
       callback = no_trailing;
       no_trailing = undefined;
     }
-    
+
     // The `wrapper` function encapsulates all of the throttling / debouncing
     // functionality and when executed will limit the rate at which `callback`
     // is executed.
@@ -25568,91 +25578,91 @@ function rgb2hex(rgb) {
       var that = this,
         elapsed = +new Date() - last_exec,
         args = arguments;
-      
+
       // Execute `callback` and update the `last_exec` timestamp.
       function exec() {
         last_exec = +new Date();
         callback.apply( that, args );
       };
-      
+
       // If `debounce_mode` is true (at_begin) this is used to clear the flag
       // to allow future `callback` executions.
       function clear() {
         timeout_id = undefined;
       };
-      
+
       if ( debounce_mode && !timeout_id ) {
         // Since `wrapper` is being called for the first time and
         // `debounce_mode` is true (at_begin), execute `callback`.
         exec();
       }
-      
+
       // Clear any existing timeout.
       timeout_id && clearTimeout( timeout_id );
-      
+
       if ( debounce_mode === undefined && elapsed > delay ) {
         // In throttle mode, if `delay` time has been exceeded, execute
         // `callback`.
         exec();
-        
+
       } else if ( no_trailing !== true ) {
         // In trailing throttle mode, since `delay` time has not been
         // exceeded, schedule `callback` to execute `delay` ms after most
         // recent execution.
-        // 
+        //
         // If `debounce_mode` is true (at_begin), schedule `clear` to execute
         // after `delay` ms.
-        // 
+        //
         // If `debounce_mode` is false (at end), schedule `callback` to
         // execute after `delay` ms.
         timeout_id = setTimeout( debounce_mode ? clear : exec, debounce_mode === undefined ? delay - elapsed : delay );
       }
     };
-    
+
     // Set the guid of `wrapper` function to the same of original callback, so
     // it can be removed in jQuery 1.4+ .unbind or .die by using the original
     // callback as a reference.
     if ( $.guid ) {
       wrapper.guid = callback.guid = callback.guid || $.guid++;
     }
-    
+
     // Return the wrapper function.
     return wrapper;
   };
-  
+
   // Method: jQuery.debounce
-  // 
+  //
   // Debounce execution of a function. Debouncing, unlike throttling,
   // guarantees that a function is only executed a single time, either at the
   // very beginning of a series of calls, or at the very end. If you want to
   // simply rate-limit execution of a function, see the <jQuery.throttle>
   // method.
-  // 
+  //
   // In this visualization, | is a debounced-function call and X is the actual
   // callback execution:
-  // 
+  //
   // > Debounced with `at_begin` specified as false or unspecified:
   // > ||||||||||||||||||||||||| (pause) |||||||||||||||||||||||||
   // >                          X                                 X
-  // > 
+  // >
   // > Debounced with `at_begin` specified as true:
   // > ||||||||||||||||||||||||| (pause) |||||||||||||||||||||||||
   // > X                                 X
-  // 
+  //
   // Usage:
-  // 
+  //
   // > var debounced = jQuery.debounce( delay, [ at_begin, ] callback );
-  // > 
+  // >
   // > jQuery('selector').bind( 'someevent', debounced );
   // > jQuery('selector').unbind( 'someevent', debounced );
-  // 
+  //
   // This also works in jQuery 1.4+:
-  // 
+  //
   // > jQuery('selector').bind( 'someevent', jQuery.debounce( delay, [ at_begin, ] callback ) );
   // > jQuery('selector').unbind( 'someevent', callback );
-  // 
+  //
   // Arguments:
-  // 
+  //
   //  delay - (Number) A zero-or-greater delay in milliseconds. For event
   //    callbacks, values around 100 or 250 (or even higher) are most useful.
   //  at_begin - (Boolean) Optional, defaults to false. If at_begin is false or
@@ -25664,17 +25674,17 @@ function rgb2hex(rgb) {
   //  callback - (Function) A function to be executed after delay milliseconds.
   //    The `this` context and all arguments are passed through, as-is, to
   //    `callback` when the debounced-function is executed.
-  // 
+  //
   // Returns:
-  // 
+  //
   //  (Function) A new, debounced, function.
-  
+
   $.debounce = function( delay, at_begin, callback ) {
     return callback === undefined
       ? jq_throttle( delay, at_begin, false )
       : jq_throttle( delay, callback, at_begin !== false );
   };
-  
+
 })(this);
 
 /*! Copyright (c) 2011 Piotr Rochala (http://rocha.la)
@@ -26764,14 +26774,14 @@ function rgb2hex(rgb) {
 
 (function ($, window, document, undefined) {
 
-	//"use strict"; 
+	//"use strict";
 
 	var pluginName = 'smartPanel';
 
 	/**
 	 * Check for touch support and set right click events.
 	 **/
-	/*var clickEvent = (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch ? 
+	/*var clickEvent = (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch ?
 		'clickEvent' : 'click') + '.' + pluginName;*/
 
 	var clickEvent;
@@ -26816,14 +26826,14 @@ function rgb2hex(rgb) {
 		},
 
 		_loadKeys : function () {
-			
+
 			var self = this;
 			var panel_url = self.o.pageKey || location.pathname;
 
 			self.storage.keySettings = 'smartPanel_settings_' + panel_url + '_' + self.objId;
 			self.storage.keyPosition = 'smartPanel_position_' + panel_url + '_' + self.objId;
 		},
- 
+
 		/**
 		 * Save all settings to the localStorage.
 		 *
@@ -26866,7 +26876,7 @@ function rgb2hex(rgb) {
 			/**
 			 * Run the callback function.
 			 **/
-			
+
 			if (typeof self.o.onSave == 'function') {
 				self.o.onSave.call(this, null, storeSettingsObj, storage.keySettings);
 
@@ -26927,7 +26937,7 @@ function rgb2hex(rgb) {
 		init: function () {
 
 			var self = this;
-			
+
 			if (self.initialized) return;
 
 			self._initStorage(self.storage);
@@ -27051,7 +27061,7 @@ function rgb2hex(rgb) {
 
 			/**
 			 * LOOP ALL PANELS
-			 **/            
+			 **/
 			self.panel.each(function () {
 
 				var tPanel = $(this),
@@ -27125,7 +27135,7 @@ function rgb2hex(rgb) {
 							'<div class="loader"><i class="fal fa-spinner-third fa-spin-4x fs-xxl"></i></div>'
 						);
 						//append** conflicts with panel > container > content:last child, so changed to prepend
-						
+
 					} else {
 						refreshButton = '';
 					}
@@ -27199,7 +27209,7 @@ function rgb2hex(rgb) {
 					 **/
 					if (lockedButton !== '' || colorButton !== '' || refreshButton !== '' || resetButton !== '' || customButton !== '') {
 						thisHeader.append('<div class="panel-toolbar"><a href="#" class="btn btn-toolbar-master" data-toggle="dropdown"><i class="fal fa-ellipsis-v"></i></a><div class="dropdown-menu dropdown-menu-animated dropdown-menu-right p-0">' + formatDropdownButtons + '</div></div>');
-					}    
+					}
 
 					/**
 					 * Adding roles to some parts.
@@ -27264,7 +27274,7 @@ function rgb2hex(rgb) {
 			 * DELETE LOCAL STORAGE KEYS
 			 **/
 			if (self.storage.enabled) {
-			   
+
 				// Delete the settings key.
 				$(self.o.deleteSettingsKey)
 					.on(clickEvent, this, function (e) {
@@ -27315,7 +27325,7 @@ function rgb2hex(rgb) {
 
 				storage.getKeySettings = localStorage.getItem(storage.keySettings);
 				storage.getKeyPosition = localStorage.getItem(storage.keyPosition);
-				
+
 			} // end if
 
 		},
@@ -27345,7 +27355,7 @@ function rgb2hex(rgb) {
 					$(this).tooltip('hide');
 				} else {
 					console.log("bs.tooltip is not loaded");
-				}   
+				}
 
 				/**
 				 * Run function for the indicator image.
@@ -27355,23 +27365,23 @@ function rgb2hex(rgb) {
 				pPanel.children('.panel-container').collapse('toggle')
 					.on('shown.bs.collapse', function() {
 						pPanel.removeClass('panel-collapsed');
-						self._savePanelSettings(); 
+						self._savePanelSettings();
 					 }).on('hidden.bs.collapse', function(){
 						pPanel.addClass('panel-collapsed');
-						self._savePanelSettings(); 
+						self._savePanelSettings();
 					});
 
 				/*if (pPanel.hasClass('panel-collapsed')) {
 					pPanel.removeClass('panel-collapsed')
 						.children('.panel-container')
 						.slideDown(400, function () {
-							self._savePanelSettings(); 
+							self._savePanelSettings();
 						});
 				} else {
 					pPanel.addClass('panel-collapsed')
 						.children('.panel-container')
 						.slideUp(400, function () {
-							self._savePanelSettings(); 
+							self._savePanelSettings();
 						});
 				}*/
 
@@ -27391,8 +27401,8 @@ function rgb2hex(rgb) {
 				/**
 				 * Lets save the setings.
 				 **/
-			   // self._savePanelSettings();             
-				
+			   // self._savePanelSettings();
+
 				e.preventDefault();
 			});
 
@@ -27411,7 +27421,7 @@ function rgb2hex(rgb) {
 					$(this).tooltip('hide');
 				} else {
 					console.log("bs.tooltip is not loaded");
-				}   
+				}
 
 				/**
 				 * Run function for the indicator image.
@@ -27451,9 +27461,9 @@ function rgb2hex(rgb) {
 					$(this).tooltip('hide');
 				} else {
 					console.log("bs.tooltip is not loaded");
-				}   
+				}
 
-				
+
 				var killPanel = function (){
 
 					/**
@@ -27468,7 +27478,7 @@ function rgb2hex(rgb) {
 						if (typeof self.o.onClosepanel == 'function') {
 							self.o.onClosepanel.call(this, pPanel);
 						}
-					});  
+					});
 
 					/**
 					 * Run function for the indicator image.
@@ -27502,7 +27512,7 @@ function rgb2hex(rgb) {
 						closeButton: false,
 						callback: function (result) {
 							if (result == true) {
-								//close panel 
+								//close panel
 								killPanel();
 							}
 						}
@@ -27514,7 +27524,7 @@ function rgb2hex(rgb) {
 						killPanel();
 					}
 
-				}				
+				}
 
 				e.preventDefault();
 			});
@@ -27535,7 +27545,7 @@ function rgb2hex(rgb) {
 				selectedHdr.removeClassPrefix('bg-')
 					.addClass(val)
 					.closest('.panel')
-					.attr('data-panel-attstyle', '' + val + '');              
+					.attr('data-panel-attstyle', '' + val + '');
 
 				/**
 				 * Run the callback function.
@@ -27586,8 +27596,8 @@ function rgb2hex(rgb) {
 				/**
 				 * Lets save the setings.
 				 **/
-				self._savePanelSettings();             
-				
+				self._savePanelSettings();
+
 				e.preventDefault();
 			});
 
@@ -27610,7 +27620,7 @@ function rgb2hex(rgb) {
 						//pContainer.removeClass('enable-spinner').dequeue();
 						pPanel.removeClass('panel-refresh').children('.panel-container').removeClass('enable-loader').dequeue();
 						console.log(pPanel.attr('id') + " refresh complete");
-					}); 
+					});
 
 
 				/**
@@ -27618,8 +27628,8 @@ function rgb2hex(rgb) {
 				 **/
 				if (typeof self.o.onRefresh == 'function') {
 					self.o.onRefresh.call(this, pPanel);
-				}       
-				
+				}
+
 				e.preventDefault();
 			});
 
@@ -27640,25 +27650,25 @@ function rgb2hex(rgb) {
 					.removeClass('panel-collapsed panel-fullscreen panel-locked')
 					.attr('data-panel-attstyle', '')
 					.children('.panel-container').collapse('show');
-					  
+
 
 				/**
 				 * Run function for the indicator image.
 				 **/
-				self._runPanelLoader(tPanel);    
+				self._runPanelLoader(tPanel);
 
 				/**
 				 * Lets save the setings.
 				 **/
-				self._savePanelSettings(); 
+				self._savePanelSettings();
 
 				/**
 				 * Run the callback function.
 				 **/
 				if (typeof self.o.onReset == 'function') {
 					self.o.onReset.call(this, pPanel);
-				}       
-				
+				}
+
 				e.preventDefault();
 			});
 
@@ -27672,8 +27682,8 @@ function rgb2hex(rgb) {
 		 * @param:
 		 **/
 		destroy: function () {
-			var self = this, 
-				namespace = '.' + pluginName, 
+			var self = this,
+				namespace = '.' + pluginName,
 				sortItem = self.obj.find(self.o.grid + '.sortable-grid').not('[data-panel-excludegrid]');
 			self.panel.removeClass('panel-sortable');
 			sortItem.sortable('destroy');
@@ -27762,14 +27772,14 @@ function rgb2hex(rgb) {
 		panelColors: ['bg-primary-700 bg-success-gradient',
 					  'bg-primary-500 bg-info-gradient',
 					  'bg-primary-600 bg-primary-gradient',
-					  'bg-info-600 bg-primray-gradient',                      
+					  'bg-info-600 bg-primray-gradient',
 					  'bg-info-600 bg-info-gradient',
 					  'bg-info-700 bg-success-gradient',
 					  'bg-success-900 bg-info-gradient',
-					  'bg-success-700 bg-primary-gradient', 
-					  'bg-success-600 bg-success-gradient',                                 
+					  'bg-success-700 bg-primary-gradient',
+					  'bg-success-600 bg-success-gradient',
 					  'bg-danger-900 bg-info-gradient',
-					  'bg-fusion-400 bg-fusion-gradient', 
+					  'bg-fusion-400 bg-fusion-gradient',
 					  'bg-faded'],
 		resetButton: true,
 		resetButtonLabel: "Reset Panel",

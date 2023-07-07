@@ -11,6 +11,8 @@ import { GuestRoutingModule } from './guest-layout.routing.module';
   imports: [
     CommonModule,
     GuestRoutingModule,
+  ],
+  providers: [
   ]
 })
 export class GuestLayoutModule { }
