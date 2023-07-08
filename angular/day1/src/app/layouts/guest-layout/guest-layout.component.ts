@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ThemeSettingsService } from '../theme-settings.service';
 
 @Component({
   selector: 'app-guest-layout',
@@ -8,7 +7,7 @@ import { ThemeSettingsService } from '../theme-settings.service';
 })
 export class GuestLayoutComponent implements AfterViewInit, OnInit {
 
-  constructor(private themeSettingsService: ThemeSettingsService) { }
+  constructor() { }
 
   ngOnInit(): void {
     // console.log('vao guest------1')

@@ -25,6 +25,8 @@ import { TabSettingComponent } from './page-setting/tab-setting/tab-setting.comp
     LeftPanelComponent,
     PageHeaderComponent,
     PageSettingComponent
-  ]
+  ],
+  providers: [
+  ],
 })
 export class ShareComponentModule { }

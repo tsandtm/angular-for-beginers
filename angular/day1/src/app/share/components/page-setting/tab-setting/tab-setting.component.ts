@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./tab-setting.component.css']
 })
 export class TabSettingComponent {
+  constructor() { }
 
+  SaveSetting(){
+  }
 }

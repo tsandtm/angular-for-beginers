@@ -9,8 +9,6 @@ import { SharedModule } from './share/shared.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './share/components/not-found/not-found.component';
 
-import { ThemeSettingsService } from './layouts/theme-settings.service';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +27,6 @@ import { ThemeSettingsService } from './layouts/theme-settings.service';
     BrowserAnimationsModule
   ],
   providers: [
-    ThemeSettingsService,
   ],
   bootstrap: [AppComponent]
 })
