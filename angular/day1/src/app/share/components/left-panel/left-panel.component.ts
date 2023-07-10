@@ -24,3 +24,6 @@ export class LeftPanelComponent implements AfterViewInit {
   }
 }
 
+//https://fmoralesdev.com/2019/10/23/using-external-js-files-in-angular/
+//https://www.c-sharpcorner.com/article/using-external-js-file-in-angular-app/
+//https://codeburst.io/lazy-loading-external-javascript-libraries-in-angular-3d86ada54ec7
