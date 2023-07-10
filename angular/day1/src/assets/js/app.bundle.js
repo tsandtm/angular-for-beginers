@@ -2139,9 +2139,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	initApp.mobileCheckActivation();
 
  	/**
-	 * b. build navigation
+	 * b. build navigation tsandtm
 	 **/
-	initApp.buildNavigation(myapp_config.navHooks);
+	// initApp.buildNavigation(myapp_config.navHooks);
 
  	/**
 	 * c. initialize nav filter

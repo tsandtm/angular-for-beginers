@@ -43,7 +43,7 @@
     <!--
     TIP: The menu items are not auto translated. You must have a residing lang file associated with the menu saved inside dist/media/data with reference to each 'data-i18n' attribute.
     -->
-    <ul id="js-nav-menu" class="nav-menu">
+    <ul id="js-nav-menu" class="nav-menu ">
       <li class="active">
         <a routerLink="/" title="Dashboard Project" data-filter-tags="dashboard page">
           <i class="fal fa-globe"></i>
@@ -73,6 +73,100 @@
           <li>
             <a href="javascript:void(0);" title="Menu child" data-filter-tags="utilities menu child">
               <span class="nav-link-text" data-i18n="nav.utilities_menu_child">Sub-category</span>
+            </a>
+            <ul>
+              <li>
+                <a href="javascript:void(0);" title="Sublevel Item"
+                  data-filter-tags="utilities menu child sublevel item">
+                  <span class="nav-link-text" data-i18n="nav.utilities_menu_child_sublevel_item">Sublevel Item</span>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" title="Another Item" data-filter-tags="utilities menu child another item">
+                  <span class="nav-link-text" data-i18n="nav.utilities_menu_child_another_item">Another Item</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="disabled">
+            <a href="javascript:void(0);" title="Disabled item" data-filter-tags="utilities disabled item">
+              <span class="nav-link-text" data-i18n="nav.utilities_disabled_item">Disabled item</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" title="Utilities" data-filter-tags="utilities">
+          <i class="fal fa-bolt"></i>
+          <span class="nav-link-text" data-i18n="nav.utilities">Utilities</span>
+        </a>
+        <ul>
+          <li>
+            <a href="utilities_borders.html" title="Borders" data-filter-tags="utilities borders">
+              <span class="nav-link-text" data-i18n="nav.utilities_borders">Borders</span>
+            </a>
+          </li>
+          <li>
+            <a href="utilities_clearfix.html" title="Clearfix" data-filter-tags="utilities clearfix">
+              <span class="nav-link-text" data-i18n="nav.utilities_clearfix">Clearfix</span>
+            </a>
+          </li>
+          <li>
+            <a href="utilities_color_pallet.html" title="Color Pallet" data-filter-tags="utilities color pallet">
+              <span class="nav-link-text" data-i18n="nav.utilities_color_pallet">Color Pallet</span>
+            </a>
+          </li>
+          <li>
+            <a href="utilities_display_property.html" title="Display Property"
+              data-filter-tags="utilities display property">
+              <span class="nav-link-text" data-i18n="nav.utilities_display_property">Display Property</span>
+            </a>
+          </li>
+          <li>
+            <a href="utilities_fonts.html" title="Fonts" data-filter-tags="utilities fonts">
+              <span class="nav-link-text" data-i18n="nav.utilities_fonts">Fonts</span>
+            </a>
+          </li>
+          <li>
+            <a href="utilities_flexbox.html" title="Flexbox" data-filter-tags="utilities flexbox">
+              <span class="nav-link-text" data-i18n="nav.utilities_flexbox">Flexbox</span>
+            </a>
+          </li>
+          <li>
+            <a href="utilities_helpers.html" title="Helpers" data-filter-tags="utilities helpers">
+              <span class="nav-link-text" data-i18n="nav.utilities_helpers">Helpers</span>
+            </a>
+          </li>
+          <li>
+            <a href="utilities_position.html" title="Position" data-filter-tags="utilities position">
+              <span class="nav-link-text" data-i18n="nav.utilities_position">Position</span>
+            </a>
+          </li>
+          <li>
+            <a href="utilities_responsive_grid.html" title="Responsive Grid"
+              data-filter-tags="utilities responsive grid">
+              <span class="nav-link-text" data-i18n="nav.utilities_responsive_grid">Responsive Grid</span>
+            </a>
+          </li>
+          <li>
+            <a href="utilities_sizing.html" title="Sizing" data-filter-tags="utilities sizing">
+              <span class="nav-link-text" data-i18n="nav.utilities_sizing">Sizing</span>
+            </a>
+          </li>
+          <li>
+            <a href="utilities_spacing.html" title="Spacing" data-filter-tags="utilities spacing">
+              <span class="nav-link-text" data-i18n="nav.utilities_spacing">Spacing</span>
+            </a>
+          </li>
+          <li>
+            <a href="utilities_typography.html" title="Typography"
+              data-filter-tags="utilities typography fonts headings bold lead colors sizes link text states list styles truncate alignment">
+              <span class="nav-link-text" data-i18n="nav.utilities_typography">Typography</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" title="Menu child" data-filter-tags="utilities menu child">
+              <span class="nav-link-text" data-i18n="nav.utilities_menu_child">Menu child</span>
             </a>
             <ul>
               <li>
@@ -147,6 +241,5 @@
         </a>
       </li>
     </ul>
-  </div>
-  <!-- END NAV FOOTER -->
+  </div> <!-- END NAV FOOTER -->
 </aside>

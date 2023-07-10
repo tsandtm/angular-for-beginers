@@ -8,6 +8,7 @@ import { SharedModule } from './share/shared.module';
 
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './share/components/not-found/not-found.component';
+import { SmartAdminConfigService } from './share/components/smart-admin-config.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NotFoundComponent } from './share/components/not-found/not-found.compon
     BrowserAnimationsModule
   ],
   providers: [
+    SmartAdminConfigService,
   ],
   bootstrap: [AppComponent]
 })

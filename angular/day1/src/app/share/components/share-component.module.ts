@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+import { SmartAdminConfigService } from './smart-admin-config.service';
+
 import { TopBarComponent } from './app-top-bar/app-top-bar.component';
 import { LeftPanelComponent } from './left-panel/left-panel.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
@@ -27,6 +29,7 @@ import { TabSettingComponent } from './page-setting/tab-setting/tab-setting.comp
     PageSettingComponent
   ],
   providers: [
+    SmartAdminConfigService,
   ],
 })
 export class ShareComponentModule { }
