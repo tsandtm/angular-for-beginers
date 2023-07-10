@@ -29,8 +29,4 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "include": [
-    "src/**/*.ts",
-    "src/typings/jquery-navigation.d.ts"
-  ]
 }
