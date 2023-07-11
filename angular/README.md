@@ -37,6 +37,8 @@
   - Có 1 template html sẵn. Covert thành layout giao diện cho project
   - Chuyền page layout member và guest
 
+# DAY 6
+- Setup project, sử dụng nx workspace
 
 
 # LO TRINH
